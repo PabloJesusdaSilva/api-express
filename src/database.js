@@ -1,14 +1,15 @@
 const sequence = {
    _id: 1,
-   get id() { this._id++ }
+   get id() { return this._id++ }
 }
-
-const products = {}
+const lista = [];
+const products = {};
 
 const productSave = (product)  => {
    if(!product.id) product.id = sequence.id
-   product[product.id] = product;
+   products[product.id] = product;
 
+   lista.push(product)
    return product;
 }
 
@@ -17,7 +18,7 @@ const getProduct = (id) => {
 }
 
 const getProducts = () => {
-   return Object.values(products);
+   return Object.values(lista);
 }
 
 module.exports = { productSave, getProduct, getProducts };
