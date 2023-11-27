@@ -34,6 +34,12 @@ app.put('/products/:id', (req, res, next) => {
    res.send(product);
 })
 
+app.delete('/products/:id', (req, res, next) => {
+   const product = dataBase.deleteProduct(req.params.id);
+
+   res.send(product);
+})
+
 app.listen(port, () => {
    console.log(`Server is running on port ${port}`);
 })

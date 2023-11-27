@@ -21,4 +21,16 @@ const getProducts = () => {
    return Object.values(lista);
 }
 
-module.exports = { productSave, getProduct, getProducts };
+const deleteProduct = (id) => {
+   const product = products[id];
+   delete products[id];
+
+   return product;
+}
+
+module.exports = { 
+   productSave, 
+   getProduct, 
+   getProducts,
+   deleteProduct
+};
